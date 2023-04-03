@@ -28,8 +28,11 @@ const letterToCodeWord = {
 };
 
 class NatoAlphabetConverter {
-  convert(letter) {
-    return letterToCodeWord[letter];
+  convert(word) {
+    return word
+      .split("")
+      .map((letter) => letterToCodeWord[letter.toLowerCase()])
+      .join(" ");
   }
 }
 

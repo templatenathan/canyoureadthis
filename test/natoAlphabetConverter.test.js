@@ -37,4 +37,10 @@ describe("GIVEN an individual letter", () => {
       );
     }
   );
+
+  test("GIVEN a whole word, WHEN converted, THEN each letter should be converted, with a space in between", () => {
+    expect(new NatoAlphabetConverter().convert("Helloword")).toStrictEqual(
+      "Hotel Echo Lima Lima Oscar Whiskey Oscar Romeo Delta"
+    );
+  });
 });
