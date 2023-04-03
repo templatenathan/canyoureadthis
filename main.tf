@@ -15,8 +15,8 @@ terraform {
   }
 }
 
-resource "sonarcloud_project" "template" {
-  key        = "template"
-  name       = "template"
+resource "sonarcloud_project" "canyoureadthis" {
+  key        = "canyoureadthis"
+  name       = "canyoureadthis"
   visibility = "public"
 }
