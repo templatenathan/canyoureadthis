@@ -27,12 +27,19 @@ const letterToCodeWord = {
   z: "Zulu",
 };
 
+const punctuation = new Set([",", ".", "!", "?"]);
+
 class NatoAlphabetConverter {
   convert(word) {
-    return word
-      .split("")
-      .map((letter) => letterToCodeWord[letter.toLowerCase()])
-      .join(" ");
+    return word.split("").map(this.convertLetter).join(" ");
+  }
+
+  convertLetter(letter) {
+    if (punctuation.has(letter)) {
+      return letter;
+    } else {
+      return letterToCodeWord[letter.toLowerCase()];
+    }
   }
 }
 

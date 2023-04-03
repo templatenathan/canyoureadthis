@@ -37,10 +37,27 @@ describe("GIVEN an individual letter", () => {
       );
     }
   );
-
-  test("GIVEN a whole word, WHEN converted, THEN each letter should be converted, with a space in between", () => {
-    expect(new NatoAlphabetConverter().convert("Helloword")).toStrictEqual(
-      "Hotel Echo Lima Lima Oscar Whiskey Oscar Romeo Delta"
-    );
-  });
 });
+
+test("GIVEN a whole word, WHEN converted, THEN each letter should be converted, with a space in between", () => {
+  expect(new NatoAlphabetConverter().convert("Helloword")).toStrictEqual(
+    "Hotel Echo Lima Lima Oscar Whiskey Oscar Romeo Delta"
+  );
+});
+
+test.each`
+  punctuation
+  ${"."}
+  ${","}
+  ${"?"}
+  ${"!"}
+`(
+  "GIVEN a word with the punctuation mark $punctuation, WHEN converted, THEN the punctuation mark should be perserved",
+  ({ punctuation }) => {
+    expect(
+      new NatoAlphabetConverter().convert("Helloword" + punctuation)
+    ).toStrictEqual(
+      "Hotel Echo Lima Lima Oscar Whiskey Oscar Romeo Delta " + punctuation
+    );
+  }
+);
