@@ -7,3 +7,8 @@
 TODO:
 
 ## Pomodoro 1
+
+✅ Nato Alphabet Converter
+✅ each individual letter
+✅ convert a whole word
+🚧 convert a whole sentence
